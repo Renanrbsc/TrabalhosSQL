@@ -1,0 +1,109 @@
+set serveroutput on
+declare
+cursor renan is
+select a.nome,e.nome INSTITUICAO
+from aluno a,
+escola e
+where e.FK_escola = a.PK_aluno
+and a.nome like 'R%'
+and e.nome like 'A%';
+
+BEGIN
+FOR INDICE1 IN renan Loop
+
+if indice1.nome = RENAN THEN
+DBMS_OUTPUT.PUT_LINE('ALUNO ENCONTRADO ->'||INDICE1.NOME);
+
+ELSIF INDICE1.NOME = RUAN THEN
+DBMS_OUTPUT.PUT_LINE('ALUNO ENCONTRADO ->'||INDICE1.NOME);
+
+ELSE
+DBMS_OUTPUT.PUT_LINE('ALUNO ENCONTRADO POREM ESTA FORA DO IF'||INDICE1.NOME);
+
+END IF;
+END LOOP;
+END;
+
+
+ALUNO ENCONTRADO RENAN
+ALUNO ENCONTRADO RUAN
+ALUNO ENCONTRADO POREM ESTA FORA DO IF RENATA
+ALUNO ENCONTRADO POREM ESTA FORA DO IF RAISA
+
+---------------------------------------
+
+
+CREATE TABLE PESSOA(
+NOME
+CPF
+ENDERECO
+IDADE
+);
+
+CREATE TABLE ESCOLA(
+NOME
+ENDERECO
+PROFESSOR
+TURMA
+);
+
+CREATE TABLE PET(
+NOME VARCHAR (20) NOT NULL,
+ESPECIE VARCHAR(30),
+DONO VARCHAR(50),
+SEXO CHAR(1) NOT NULL,
+NASCIMENTO DATA NOT NULL,
+OBITO DATA
+);
+
+CREATE TABLE salario
+valor number(8)
+
+
+
+
+
+
+
+
+
+
+insert into salario values(455);
+
+
+
+aspas apenas para strings
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

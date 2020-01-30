@@ -1,0 +1,48 @@
+================================================================================
+===FORMULA PARA CRIAR FUNÇAO E SALVAR NO BANCO DE DADOS SQL
+================================================================================
+create or replace FUNCTION primeiro_nome_func(v_id in number )RETURN VARCHAR2 IS
+dept_name VARCHAR2(20);
+BEGIN
+SELECT department_name INTO dept_name
+FROM departments WHERE department_id=v_id;
+RETURN dept_name;
+END;
+================================================================================
+
+
+================================================================================
+===CHAMAR A FUNCAO CRIADA NO BANCO DE DADOS
+================================================================================
+select primeiro_nome_func(e.department_id) ,
+e.department_id, employee_id from employees e
+================================================================================
+
+
+================================================================================
+===EXERCICIOS
+================================================================================
+
+1 - Criar uma função que receba o cod_empregado e retorne o 
+nome||'* '|| sobrenome
+
+2 - Criar uma funcao que receba uma tabela e retorne os departamentos existentes nela.
+
+3 - Criar uma função para simular uma soma de dois valores
+
+4 - Criar uma funcao para simular uma calculadora em tabela Dual
+
+5 - Escreva um comando que permita determinar há quanto 
+tempo está a trabalhar na empresa determinado empregado (anos e meses).
+
+6 - Crie uma função que dado o número de minutos retorne o número de horas
+correspondente.
+
+7 - Dado um salário X calcule o salário líquido, sendo que os descontos de 
+IRPF ocorrem conforme atabela abaixo:
+
+Base de cálculo mensal em 
+R$					Alíquota %
+Até 1.313,69			-	isento
+De 1.313,70 até 2.625,12  	-	15,0
+Acima de 2.625,12          	-	27,5

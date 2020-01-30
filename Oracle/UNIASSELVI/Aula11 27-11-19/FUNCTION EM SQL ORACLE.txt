@@ -1,0 +1,65 @@
+FUNCTION EM SQL ORACLE
+
+================================================================
+
+create or replace function NOMEFUNCTION (VALORPARAMETRO)
+return varchar is NOMEVARIAVEL NOMETABELA.NOMECOLUNA%type; 
+begin 
+    select NOMECOLUNA into NOMEVARIAVEL 
+    from NOMETABELA 
+    where NOMETABELA_ID = VALORPARAMETRO;
+    return NOMEVARIAVEL; 
+end;
+==============================================================
+select NOMEFUNCTION(VALORPARAMETRO)from TABELA;
+===============================================================
+
+create or replace function calculadora_soma (v1 in number, v2 in number)
+return number is SOMA number(9);
+BEGIN
+    select v1 + v2 into SOMA
+    from dual;
+RETURN SOMA;
+END;
+==============================================================
+select calculadora_soma(2,4)from dual;
+===============================================================
+
+create or replace function NOMEFUNCTION
+return number is NOMEVARIAVEL employees.salary%TYPE; 
+cursor NOMECURSOR is 
+    select salary SALARIO
+    from employees;
+
+begin 
+    for NOMEINDICE in NOMECURSOR loop 
+        NOMEVARIAVEL := NOMEINDICE.SALARIO + 50; 
+        RETURN NOMEVARIAVEL;
+    end loop; 
+END;
+======================================================================
+SELECT NOMEFUNCTION from dual;
+FUNCIONA, porem fica repetindo valor
+======================================================================
+
+
+
+
+
+=======================================================
+
+PROCEDURE SIMPLES
+
+==================================================
+
+create or replace procedure NOMEPROCEDURE is
+NOMEVARIAVEL varchar(50);
+begin
+    select first_name into NOMEVARIAVEL
+    from employees
+    where employee_id = 100;
+end;
+
+=================================
+call NOMEPROCEDURE();
+===================================

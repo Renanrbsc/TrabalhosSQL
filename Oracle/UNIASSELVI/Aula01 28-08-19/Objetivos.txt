@@ -1,0 +1,29 @@
+Exibir todos os dados dos empregados que o salario minimo seja maior que 10000.
+Exibir o nome e a data de entrada dos funcionários entre 2002 e 2005
+Apresente o nome e da data de entrada dos empregados que são JOB_ID IN ('IT_PROG', 'SA_MAN')
+Mostrar os empregados que começaram antes de 2008
+Exibir dados dos empregados 150 ou 160
+Exibir nome, comissão, salario minimo e maximo para empregados entre salario de 10000 e 20000
+apresente o salario com arredamento de 2 casas, e truncado com 3 casas
+Apresentar os dados do funcionário que o sobrenome com 'S'
+Exibir detalhes dos funcionários em que a porcentagem de comissão é nula e o salário no intervalo de 5000 a 10000 e o
+departamento é 30.
+Exibir o nome e a experiência dos funcionários.(hire_date)
+Exiba o nome e o sobrenome depois de converter a primeira letra de cada nome em maiúscula e o restante em minúscula
+Exibir o salário médio dos funcionários em cada departamento que possuem percentual de comissão.
+Exibir ID do trabalho, número de funcionários, soma do salário e diferença entre o salário mais alto e o salário mais baixo dos funcionários do trabalho.
+Exiba departamentos nos quais mais de cinco funcionários tenham percentual de comissão.
+
+
+Exiba quantos funcionários ingressaram em cada mês do ano atual.
+
+Crie uma função que descubra o nome do funcionário e o nome do departamento do funcionário que está gerenciando o funcionário XX.
+Crie uma função que aceite o ID do departamento e retorne o nome do gerente do departamento.
+
+Crie uma função que receba o ID de gerente e retorne os nomes dos funcionários que se reportam a esse gerente. Os nomes devem ser retornados como uma sequência com nomes separados por vírgula.
+Crie uma trigger para garantir que o salário do funcionário não seja diminuído fora do horário comercial.
+Atualize os salários dos funcionários com base no percentual de departamento e comissão.
+Se o departamento for 40, aumente o salário em 10%.
+Se o departamento for 70, então 15%,
+se a comissão for maior que 0,3%, então 5%,
+caso contrário 10%.

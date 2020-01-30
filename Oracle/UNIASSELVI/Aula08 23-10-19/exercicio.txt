@@ -1,0 +1,48 @@
+
+
+
+criando tabela referencia da procedure
+===========================================================
+CREATE TABLE Pessoa(
+FIRST_NAME VARCHAR2(100 BYTE) not null,
+LAST_NAME VARCHAR2(100 BYTE),
+SALARY number);
+===========================================================
+
+
+
+
+criando a procedure
+===========================================================
+CREATE OR REPLACE PROCEDURE Att (
+vFirst Varchar2,
+vLast VARCHAR2,
+vSalary integer,
+vId char) IS
+vEXCEPTION EXCEPTION;
+
+BEGIN
+    IF vId = 'a' THEN
+    INSERT INTO Pessoa (FIRST_NAME, LAST_NAME, SALARY) VALUES (vFirst, vLast, vSalary);
+    ELSE
+    IF vId = 'b' THEN
+    UPDATE Pessoa SET First_name = vFirst , Last_name = vLast WHERE First_name = vFirst and Last_name = vLast;
+    ELSE
+    IF vId = 'c' THEN
+    DELETE FROM Pessoa WHERE First_name = vFirst and Last_name = vLast;
+    ELSE
+    RAISE vEXCEPTION;
+    END IF;
+    END IF;
+    END IF;
+EXCEPTION
+WHEN vEXCEPTION THEN
+RAISE_APPLICATION_ERROR(-20999,'ATENÇÃO! Operação diferente de a, b, c.', FALSE);
+END Att;
+================================================================
+
+
+executando a procedure
+================================================================
+EXEC Att('CARLOS','RUAN',450,'a')
+================================================================

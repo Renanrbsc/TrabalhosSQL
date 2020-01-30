@@ -1,0 +1,115 @@
+
+===EXERCICIOS
+
+======================================================================================
+1 - FUNCAO QUE RECEBE O COD_EMPREGADO E RETORNA O NOME || '*' || SOBRENOME
+======================================================================================
+CREATE OR REPLACE FUNCTION NOMESOBRENOME (V_ID IN
+NUMBER) RETURN VARCHAR2 IS NOMCompleto VARCHAR2(30);
+
+BEGIN
+SELECT FIRST_NAME||'*'||LAST_NAME INTO NOMCompleto
+FROM EMPLOYEES WHERE EMPLOYEE_ID = V_ID;
+RETURN NOMCompleto;
+END;
+======================================================================================
+===CHAMANDO POR SELECT
+======================================================================================
+SELECT NOMESOBRENOME (EMPLOYEE_ID) FROM EMPLOYEES 
+======================================================================================
+
+
+======================================================================================
+2 - FUN플O QUE RECEBE UMA TABELA E RETORNA OS DEPARTAMENTOS CADASTRADOS
+======================================================================================
+CREATE OR REPLACE FUNCTION SOUUMAFUNCAO(V_ID IN
+NUMBER) RETURN VARCHAR2 IS DEPT_NAME VARCHAR2(20);
+
+BEGIN
+SELECT DEPARTMENT_NAME INTO DEPT_NAME
+FROM DEPARTMENTS WHERE DEPARTMENT_ID = V_ID;
+RETURN DEPT_NAME;
+END;
+======================================================================================
+===CHAMANDO POR SELECT
+======================================================================================
+SELECT SOUUMAFUNCAO (DEPARTMENT_ID) FROM EMPLOYEES 
+======================================================================================
+ 
+
+======================================================================================
+3 - FUN플O QUE RECEBE DOIS VALORES E RETORNA A SOMA DOS MESMOS
+======================================================================================
+CREATE OR REPLACE FUNCTION CALCULADORA_SOMA (V1 IN NUMBER, V2 IN NUMBER)
+RETURN NUMBER IS CALCULADORA NUMBER(6);
+
+BEGIN
+SELECT V1 + V2 INTO CALCULADORA
+FROM DUAL;
+RETURN CALCULADORA;
+END;
+======================================================================================
+===CHAMANDO POR SELECT
+======================================================================================
+SELECT CALCULADORA_SOMA (4,8) FROM DUAL 
+======================================================================================
+
+
+======================================================================================
+4 - FUN플O QUE RECEBE DOIS VALORES, UMA OPERA플O LOGICA E RETORNA O VALOR DA OPERA플O
+======================================================================================
+CREATE OR REPLACE FUNCTION CALCULADORA (V1 IN NUMBER, V3 IN VARCHAR, V2 IN NUMBER)
+RETURN NUMBER IS CALCULADORA NUMBER(6);
+
+BEGIN
+IF   V3 = '/'   THEN
+  CALCULADORA:= V1 / V2;
+ELSIF V3 = '*'  THEN
+  CALCULADORA:= V1 * V2;
+ELSIF V3 = '+'  THEN
+  CALCULADORA:= V1 + V2;
+ELSIF V3 = '-'  THEN
+  CALCULADORA:= V1 - V2;
+RETURN CALCULADORA;
+END IF; 
+END;
+======================================================================================
+2� FORMA - USANDO EXCEPTION - EXCE합ES PARA EVITAR POSSIVEIS ERROS
+======================================================================================
+CREATE OR REPLACE FUNCTION CALCULADORA (V1 IN NUMBER, V3 IN VARCHAR, V2 IN NUMBER)
+RETURN NUMBER IS CALCULADORA NUMBER(6);
+
+BEGIN
+    BEGIN
+    	IF   V3 = '/'   THEN
+       	   IF V2 = 0 THEN
+               CALCULADORA:= V1 / 1;
+               ELSE
+               CALCULADORA:= V1 / V2;
+           END IF;                
+    	ELSIF V3 = '*'  THEN
+	    CALCULADORA:= V1 * V2;
+    	ELSIF V3 = '+'  THEN
+      	    CALCULADORA:= V1 + V2;
+    	ELSIF V3 = '-'  THEN
+      	    CALCULADORA:= V1 - V2;
+     	END IF;
+    EXCEPTION WHEN OTHERS THEN 
+        CALCULADORA := 999;
+    END;
+RETURN CALCULADORA;
+END; 
+======================================================================================
+===CHAMANDO POR SELECT
+======================================================================================
+SELECT CALCULADORA (15,'/', 0) FROM DUAL 
+SELECT CALCULADORA (20,'*', 4) FROM DUAL 
+SELECT CALCULADORA (85,'+', 4) FROM DUAL 
+SELECT CALCULADORA (35,'-', 4) FROM DUAL 
+======================================================================================
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+
+FORMAS DE EXECUTAR A PROCEDURE
+ ===========================================
+
+set serveroutput on
+EXECUTE p_hello;
+
+=========================================
+
+set serveroutput on
+CALL p_hello;
+
+-==================================
+
+set serveroutput on
+EXEC p_hello;

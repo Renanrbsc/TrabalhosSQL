@@ -1,0 +1,19 @@
+create or replace procedure NOMEPROCEDURE is
+cursor NOMECURSOR is
+	select  a.employee_id REGISTRO, a.first_name || ' ' || a.last_name NOMECOMPLETO,
+		rount(trunc(a.salary -e.max_salary)) ABAIXOMIN
+	from employees a, jobs e
+	where a.job_id = e.job_id;
+begin
+	for NOMEINDICE in NOMECURSOR loop
+		insert into NOVATABELA (REGISTRO,NOMECOMPLETO,ABAIXOMIN)
+		VALUES (NOMEINDICE.REGISTRO,NOMEINDICE.NOMECOMPLETO,NOMEINDICE.ABAIXOMIN);
+	end loop;
+end;
+
+
+call NOMEPROCEDURE();
+
+============================================================
+create table NOVATABELA(
+select

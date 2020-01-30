@@ -1,0 +1,44 @@
+======================================================================================
+5 - FUN��O QUE RECEBE ID DE FUNCIONARIO, DATA DE ADMISSAO E RETORNA NOME E TEMPO
+======================================================================================
+CREATE OR REPLACE FUNCTION TEMPOEMPREGADO (V_ID IN NUMBER, ADMISSAO IN NUMBER)
+RETURN VARCHAR2 IS NOMEFUNC VARCHAR2(40); TEMPOEMPREGO NUMBER(20);
+
+BEGIN
+        BEGIN
+            SELECT FIRST_NAME||' '||LAST_NAME INTO NOMEFUNC
+            FROM EMPLOYEES WHERE EMPLOYEE_ID = V_ID;
+            RETURN NOMEFUNC;
+       
+        END;
+        
+    TEMPOEMPREGO := ADMISSAO + 100;
+    RETURN TEMPOEMPREGO;
+
+END;
+======================================================================================
+===CHAMANDO POR SELECT
+======================================================================================
+SELECT TEMPOEMPREGADO(178,140) FROM DUAL;
+SELECT TEMPOEMPREGADO(178,09/10/18) FROM DUAL;
+======================================================================================
+
+
+======================================================================================
+6 - FUN��O QUE RECEBE UM VALOR NUMERICO E RETORNA QUANTIDADE DE HORAS
+======================================================================================
+CREATE OR REPLACE FUNCTION MINUTOHORA (TEMPO IN NUMBER)
+RETURN NUMBER IS HORA INTEGER(6);
+
+BEGIN
+HORA := TEMPO/60;
+RETURN HORA;
+END;
+======================================================================================
+===CHAMANDO POR SELECT
+======================================================================================
+SELECT MINUTOHORA (400) FROM DUAL
+SELECT MINUTOHORA (65000) FROM DUAL
+======================================================================================
+
+
