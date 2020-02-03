@@ -25,12 +25,12 @@ INSERT
 VALUES ('Keunan','Passos',17), ('Lucas','Brito',18), ('Joao','Pessoa',40), ('Renan','Berti',21), ('Bruno','Berti',16), ('Gabriel','Parasky',8);
  
 INSERT 
-  INTO Endereco (ID,
+  INTO ENDERECO (
        LOGRADOURO,
        NUMERO,
-       COMPLEMENTO,
-       BAIRRO,
+       SIGLA,
        CIDADE,
+       BAIRRO,
        CEP) 
-VALUES (1, 'RUAAAAAA', '00', 'NAO SEI', 'VILA', 'BAU', '2536'),(2, 'RUA', '14', 'ALGO', 'VILAA', 'CASA', '362'), (3, 'RUA', '25', 'BAIRRO', 'CASA', 'CIDADE', '25896'), (4, 'RUAAA', '85', 'CARRO', 'VINTE', 'SETE', '475'), (5, 'AVENIDA', '85', 'OI', 'CASA', 'DEZ', '5214'), (6, 'RUAA', '85', 'TRINTA', 'QUARENTE', 'SETE', '965'); 
+VALUES ('RUA', '14', 'ALGO', 'VILAA', 'CASA', '362'), ('RUA', '25', 'BAIRRO', 'CASA', 'CIDADE', '25896'), ('RUAAA', '85', 'CARRO', 'VINTE', 'SETE', '475'), ('AVENIDA', '85', 'OI', 'CASA', 'DEZ', '5214'), ('RUAA', '85', 'TRINTA', 'QUARENTE', 'SETE', '965');
 ------------------------------------------------------
